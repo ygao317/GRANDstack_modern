@@ -1,3 +1,25 @@
+# GRANDstack_modern/client
+
+For client side, we use below javascript packages:
+1. React with hooks
+2. Apollo with hooks
+3. Router with hooks
+4. Ant Design 4.0 which modify Form component to support hooks
+
+To make it work:
+1. You may resolve the dependency by `npm install` in client folder. 
+2. After that, you can run `npm run start` to start the service.
+3. Access the client end by http://localhost:3000
+
+To demo, we use a books store:
+1. List all the books
+2. Get a book
+3. Add a book
+4. Remove a book
+5. Modify a book
+
+====================================================================================================
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
