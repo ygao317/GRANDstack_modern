@@ -22,6 +22,7 @@ const typeDefs = gql`
   # -- Mutation Type ---
   type Mutation {
     addBook(title: String, author: String): Book
+    modifyBook(id: String, title: String, author: String): Book
     removeBook(id: String): Book
   }
 `;
@@ -55,6 +56,15 @@ const resolvers = {
         let query = `CREATE (book: Book {id: $id, title: $title, author: $author}) return book`;
 
         let id = uuidv4(); // Generate UUID
+        return session.run(query, {id, title, author})
+                      .then(result => result.records[0].get('book').properties)
+                      .catch(error => { console.log(error); })
+                      .finally(() => session.close());
+      },
+      modifyBook(_, {id, title, author}) {
+        let session = driver.session();
+        let query = `MATCH (book: Book { id: $id }) SET book.title = $title, book.author = $author return book`;
+
         return session.run(query, {id, title, author})
                       .then(result => result.records[0].get('book').properties)
                       .catch(error => { console.log(error); })

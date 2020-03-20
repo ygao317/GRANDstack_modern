@@ -19,7 +19,7 @@ export default function () {
         itemLayout="horizontal"
         dataSource={data.books}
         renderItem={item => (
-          <List.Item actions={[<RemoveBookLink id={item.id} />]}>
+          <List.Item actions={[<RemoveBookLink id={item.id} />, <Link to={`modifybook/${item.id}/${item.author}/${item.title}`}>modify</Link>]}>
             <List.Item.Meta
               title={<Link to={`book/${item.id}`}>{item.title}</Link>} 
             />

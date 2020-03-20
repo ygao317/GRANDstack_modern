@@ -10,6 +10,7 @@ import App from './components/App';
 import BookList from './components/BookList';
 import BookDetail from './components/BookDetail';
 import AddBook from './components/AddBook';
+import ModifyBook from './components/ModifyBook';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -30,6 +31,7 @@ function Root() {
           <BookList default />
           <BookDetail path="book/:id" />
           <AddBook path="addBook"/>
+          <ModifyBook path="modifybook/:id/:author/:title" />
         </App>
       </Router>
     </ApolloProvider>
